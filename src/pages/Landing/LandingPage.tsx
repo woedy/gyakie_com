@@ -1,16 +1,18 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 import leaves from '../../images/cover/leaves.png';
 import moon from '../../images/cover/moon.png';
 import bird from '../../images/cover/bird.png';
 import mountains from '../../images/cover/mountain.png';
-import trees from '../../images/cover/leaves.png';
+import trees from '../../images/cover/trees.png';
 
 // Define a clamp function
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 const ParallaxScene = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -70,6 +72,170 @@ const ParallaxScene = () => {
   }, []);
 
   return (
+
+    <>
+
+<div className="fixed top-0 left-0 w-full bg-transparent text-white z-50 shadow-md">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center z-100">
+       
+
+          {/* Hamburger Toggle (Mobile only) */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+
+          {/* Desktop Menu */}
+          <nav className="hidden md:block">
+            <ul className="flex space-x-4 md:space-x-6">
+              <li>
+                <a href="#about" className="hover:text-blue-100 transition">
+                 Tour
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-blue-100 transition">
+                  Music
+                </a>
+              </li>
+              <li>
+                <a href="#impact" className="hover:text-blue-100 transition">
+                  Videos
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-blue-100 transition">
+                 Store
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-blue-100 transition">
+                 More
+                </a>
+              </li>
+     
+            </ul>
+          </nav>
+
+             {/* Logo Section */}
+             <a href="/" className="flex items-center">
+           
+           <span className="font-bold text-lg md:text-xl ml-2">
+           Gyakie
+           </span>
+         </a>
+
+
+         <nav className="hidden md:block">
+            <ul className="flex space-x-4 md:space-x-6">
+         
+       
+         
+          
+              <li>
+                <a
+                  href="#donate"
+                  className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full hover:bg-blue-100 transition"
+                >
+                  f
+                </a>
+              </li>
+          
+              <li>
+                <a
+                  href="#donate"
+                  className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full hover:bg-blue-100 transition"
+                >
+                  X
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#donate"
+                  className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full hover:bg-blue-100 transition"
+                >
+                  Y
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#donate"
+                  className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full hover:bg-blue-100 transition"
+                >
+                  In
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isOpen && (
+          <div className="md:hidden bg-blue-600">
+            <ul className="flex flex-col space-y-2 px-4 pb-4">
+              <li>
+                <a href="#about" className="block py-2 hover:text-blue-100">
+                 Tour
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="block py-2 hover:text-blue-100">
+                 Music
+                </a>
+              </li>
+              <li>
+                <a href="#impact" className="block py-2 hover:text-blue-100">
+                  Videos
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="block py-2 hover:text-blue-100">
+                  Shop
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="block py-2 hover:text-blue-100">
+                  More
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#donate"
+                  className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full hover:bg-blue-100 transition inline-block mt-2"
+                >
+                  f
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+
     <div ref={ref} className="relative h-[200vh] bg-gradient-to-b from-black via-indigo-900 to-blue-950 overflow-hidden parallax-container">
       <style>
         {`
@@ -132,7 +298,7 @@ const ParallaxScene = () => {
         <img src={mountains} alt="mountains" className="w-full object-cover" loading="lazy" />
       </motion.div>
 
-      {/* Foreground leaves */}
+      {/* Foreground trees */}
       <motion.div
         style={{
           y: useTransform(scrollYProgress, [0, 0.5, 1], isMobile ? ['0%', '-10%', '-20%'] : ['0%', '-20%', '-40%']),
@@ -140,7 +306,7 @@ const ParallaxScene = () => {
         }}
         className="parallax-element absolute bottom-0 w-full z-35 pointer-events-none"
       >
-        <img src={leaves} alt="leaves" className="w-full object-cover opacity-30" loading="lazy" />
+        <img src={trees} alt="trees" className="w-full object-cover opacity-30" loading="lazy" />
       </motion.div>
 
       {/* Fog */}
@@ -194,6 +360,7 @@ const ParallaxScene = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

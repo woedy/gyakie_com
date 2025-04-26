@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import leaves from '../../images/cover/leaves.png';
 import moon from '../../images/cover/moon.png';
 import bird from '../../images/cover/bird.png';
+import children from '../../images/cover/children.png';
 import mountains from '../../images/cover/mountain.png';
 import pose from '../../images/cover/pose.jpg';
 import VinylCarousel3D from './Vynal';
@@ -13,6 +14,7 @@ import ArtistVideosSection from './VideosSection';
 import ArtistGallerySection from './GallerySection';
 import Footer from './FooterSection';
 import Header from './HeaserSection';
+import SolarSystemFramer from './SolarSystemFramer';
 
 
 
@@ -72,6 +74,8 @@ const LandingPage = () => {
       <TourSection tourDates={tourDates} moon={moon} />
 
       <VinylCarousel3D />
+
+      <SolarSystemFramer />
 
       <ArtistVideosSection />
 

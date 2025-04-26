@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import moon from '../../images/cover/moon.png';
 import music from '../../images/cover/music.png';
+import children from '../../images/cover/children.png';
+
 
 export default function VinylCarousel3D() {
   const [vinyls, setVinyls] = useState([
@@ -8,7 +10,7 @@ export default function VinylCarousel3D() {
       id: 1,
       title: 'Thriller',
       artist: 'Michael Jackson',
-      cover: moon,
+      cover: children,
       color: 'bg-red-500',
     },
     {

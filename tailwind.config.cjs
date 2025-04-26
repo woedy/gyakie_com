@@ -15,6 +15,7 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      
       colors: {
         current: 'currentColor',
         transparent: 'transparent',

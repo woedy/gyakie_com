@@ -1,58 +1,57 @@
 import React, { useState } from 'react';
 import video1 from '../../images/cover/video1.png';
 
-
 const ArtistGallerySection = () => {
   // Sample gallery data - replace with your actual gallery images
   const galleryImages = [
     {
       id: 1,
       src: video1,
-      alt: "Live Concert Performance",
-      category: "concerts"
+      alt: 'Live Concert Performance',
+      category: 'concerts',
     },
     {
       id: 2,
       src: video1,
-      alt: "Studio Session",
-      category: "studio"
+      alt: 'Studio Session',
+      category: 'studio',
     },
     {
       id: 3,
       src: video1,
-      alt: "Backstage Moment",
-      category: "backstage"
+      alt: 'Backstage Moment',
+      category: 'backstage',
     },
     {
       id: 4,
       src: video1,
-      alt: "Fan Meet & Greet",
-      category: "fans"
+      alt: 'Fan Meet & Greet',
+      category: 'fans',
     },
     {
       id: 5,
       src: video1,
-      alt: "Tour Bus Life",
-      category: "tour"
+      alt: 'Tour Bus Life',
+      category: 'tour',
     },
     {
       id: 6,
       src: video1,
-      alt: "Award Ceremony",
-      category: "events"
+      alt: 'Award Ceremony',
+      category: 'events',
     },
     {
       id: 7,
       src: video1,
-      alt: "Festival Performance",
-      category: "concerts"
+      alt: 'Festival Performance',
+      category: 'concerts',
     },
     {
       id: 8,
       src: video1,
-      alt: "Recording Session",
-      category: "studio"
-    }
+      alt: 'Recording Session',
+      category: 'studio',
+    },
   ];
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -66,12 +65,13 @@ const ArtistGallerySection = () => {
     { id: 'backstage', label: 'Backstage' },
     { id: 'fans', label: 'Fans' },
     { id: 'tour', label: 'Tour Life' },
-    { id: 'events', label: 'Events' }
+    { id: 'events', label: 'Events' },
   ];
 
-  const filteredImages = activeFilter === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === activeFilter);
+  const filteredImages =
+    activeFilter === 'all'
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === activeFilter);
 
   const openModal = (image) => {
     setSelectedImage(image);
@@ -94,7 +94,8 @@ const ArtistGallerySection = () => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-blue-400 mb-4">Gallery</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Explore memorable moments from performances, studio sessions, and life on tour.
+            Explore memorable moments from performances, studio sessions, and
+            life on tour.
           </p>
         </div>
 
@@ -134,7 +135,9 @@ const ArtistGallerySection = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-4 w-full">
-                  <h3 className="text-white text-sm font-medium">{image.alt}</h3>
+                  <h3 className="text-white text-sm font-medium">
+                    {image.alt}
+                  </h3>
                 </div>
               </div>
             </div>
@@ -151,11 +154,22 @@ const ArtistGallerySection = () => {
                 className="absolute -top-12 right-0 text-white hover:text-blue-400 transition duration-300"
                 aria-label="Close"
               >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
                 </svg>
               </button>
-              
+
               {/* Modal image container */}
               <div className="bg-gray-900 rounded-lg overflow-hidden shadow-2xl border border-blue-800">
                 <img
@@ -164,14 +178,16 @@ const ArtistGallerySection = () => {
                   className="w-full h-auto"
                 />
                 <div className="p-4 border-t border-blue-800">
-                  <h3 className="text-xl font-bold text-blue-200">{selectedImage?.alt}</h3>
+                  <h3 className="text-xl font-bold text-blue-200">
+                    {selectedImage?.alt}
+                  </h3>
                 </div>
               </div>
             </div>
-            
+
             {/* Overlay click to close */}
-            <div 
-              className="absolute inset-0 -z-10" 
+            <div
+              className="absolute inset-0 -z-10"
               onClick={closeModal}
               aria-hidden="true"
             ></div>

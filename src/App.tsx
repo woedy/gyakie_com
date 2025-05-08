@@ -8,13 +8,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import SignUp from './pages/Authentication/SignUp';
 import LandingPage from './pages/Landing/LandingPage';
 
-
-const hiddenOnRoutes = [
-  '/',
-  '/signup',
-  '/verify-user',
-
-];
+const hiddenOnRoutes = ['/', '/signup', '/verify-user'];
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -36,16 +30,13 @@ function App() {
   ) : shouldUseDefaultLayout ? (
     <DefaultLayout hiddenOnRoutes={hiddenOnRoutes}>
       <Routes>
- 
-     
-    
+
+        
       </Routes>
     </DefaultLayout>
   ) : (
     <>
       <Routes>
-   
-
         <Route
           index
           element={
@@ -65,17 +56,6 @@ function App() {
             </>
           }
         />
-
-
-
-   
-
-
-   
-
-  
-
-
       </Routes>
     </>
   );

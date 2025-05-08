@@ -7,7 +7,7 @@ import bird from '../../images/cover/bird.png';
 import mountains from '../../images/cover/mountain.png';
 import trees from '../../images/cover/trees.png';
 import VinylCarousel3D from './Vynal';
-import TourSection from './TourSection';
+import TourSection from '../Landing/TourSection';
 
 // Define a clamp function
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));

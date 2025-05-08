@@ -66,8 +66,8 @@ export default function VinylSolarSystemSection() {
     if (width < 640) {
       // Mobile
       return {
-        orbitRadius: 200,
-        sunSize: 200,
+        orbitRadius: 140,
+        sunSize: 180,
         vinylFrameWidth: 170,
         vinylFrameHeight: 140,
         vinylSize: 90,
